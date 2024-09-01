@@ -1,0 +1,68 @@
+-----------------------------------
+1. signup API 
+---------------------------------------
+http://localhost:8005/auth/signup
+method: post
+req: {
+    "email":"dineshpandit@gmail.com",
+    "password":"qwerty",
+    "fullName":"Dinesh pandit"
+}
+Response: 
+{
+    "id": 1,
+    "fullName": "Dinesh pandit",
+    "email": "dineshpandit@gmail.com",
+    "password": "$2a$10$EkfJFk8hFYCnKlwT4sZYvO7xQgUUNhLBIguV29ksGCtq2lo2Mpc96",
+    "createdAt": "2024-09-01T15:40:46.053+00:00",
+    "updatedAt": "2024-09-01T15:40:46.053+00:00",
+    "enabled": true,
+    "authorities": [],
+    "username": "dineshpandit@gmail.com",
+    "accountNonLocked": true,
+    "credentialsNonExpired": true,
+    "accountNonExpired": true
+}
+
+-----------------------------------
+2. login API 
+-----------------------------------
+URL : http://localhost:8005/auth/login
+request:
+ {
+    "email":"dineshpandit@gmail.com",
+    "password":"qwerty"
+}
+response: 
+{
+    "token": "eyJhbGciOiJIUzI1NiJ9
+              .eyJzdWIiOiJkaW5lc2hwYW5kaXRAZ21haWwuY29tIiwiaWF0IjoxNzI1MjA2NjUyLCJleHAiOjE3MjUyOTMwNTJ9
+              .FJkSwvQC7WMtMr4TiA5kUHwHxfWg3p-nsZAWBsZGevE",
+    "expiresIn": 86400000
+}
+
+-----------------------------------
+3. login API 
+-----------------------------------
+URL : http://localhost:8005/users
+Http Method: GET
+request: Header -> Authorization -> Bearer Token -> eyJhbGciOiJIUzI1NiJ9
+              .eyJzdWIiOiJkaW5lc2hwYW5kaXRAZ21haWwuY29tIiwiaWF0IjoxNzI1MjA2NjUyLCJleHAiOjE3MjUyOTMwNTJ9
+              .FJkSwvQC7WMtMr4TiA5kUHwHxfWg3p-nsZAWBsZGevE
+ Response :
+  [
+    {
+        "id": 1,
+        "fullName": "Dinesh pandit",
+        "email": "dineshpandit@gmail.com",
+        "password": "$2a$10$EkfJFk8hFYCnKlwT4sZYvO7xQgUUNhLBIguV29ksGCtq2lo2Mpc96",
+        "createdAt": "2024-09-01T15:40:46.053+00:00",
+        "updatedAt": "2024-09-01T15:40:46.053+00:00",
+        "enabled": true,
+        "accountNonLocked": true,
+        "username": "dineshpandit@gmail.com",
+        "authorities": [],
+        "accountNonExpired": true,
+        "credentialsNonExpired": true
+    }
+]
